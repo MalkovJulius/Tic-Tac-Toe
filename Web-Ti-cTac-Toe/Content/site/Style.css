@@ -1,0 +1,39 @@
+body {
+  background-image: url(List.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+table.game {
+  border: 2pt solid;
+  width: 300pt;
+  height: 300pt;
+  align-content: center;
+}
+
+th {
+  border: 2pt solid;
+  border-color: #000080;
+  align-content: space-between;
+  text-align: center;
+}
+
+td {
+  align-content: space-between;
+  border: 2pt solid;
+  border-color: #000080;
+  text-align: center;
+}
+
+.circle {
+  shape-inside: circle();
+  border: 2pt solid;
+  border-color: #000080;
+  border-radius: 50%;
+  background-color: inherit;
+
+  width: auto;
+  height: auto;
+}
+
+.cross {}
