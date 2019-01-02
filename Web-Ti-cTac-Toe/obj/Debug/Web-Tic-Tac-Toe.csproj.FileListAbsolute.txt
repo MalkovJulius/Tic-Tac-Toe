@@ -96,8 +96,8 @@ C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\ru\Syst
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\ru\System.Web.WebPages.resources.dll
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csprojAssemblyReference.cache
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csproj.CoreCompileInputs.cache
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csproj.CopyComplete
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Ti-cTac-Toe.dll
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Ti-cTac-Toe.pdb
+C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csprojAssemblyReference.cache

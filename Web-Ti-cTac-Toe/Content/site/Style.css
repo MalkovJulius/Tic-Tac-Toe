@@ -1,39 +1,28 @@
 body {
   background-image: url(List.png);
   background-size: 100%;
-  background-repeat: no-repeat;
 }
 
 table.game {
-  border: 2pt solid;
-  width: 300pt;
-  height: 300pt;
-  align-content: center;
+  border: 2pt solid; 
+  height: 20pt;
+  width: 20pt;
 }
 
 th {
   border: 2pt solid;
-  border-color: #000080;
-  align-content: space-between;
-  text-align: center;
+  border-color: #000080;  
 }
 
-td {
-  align-content: space-between;
-  border: 2pt solid;
-  border-color: #000080;
-  text-align: center;
+td {   
+    border: 2pt solid;
+    border-color: #000080; 
 }
 
-.circle {
-  shape-inside: circle();
-  border: 2pt solid;
-  border-color: #000080;
-  border-radius: 50%;
-  background-color: inherit;
-
-  width: auto;
-  height: auto;
+img {    
+    opacity:0.5;    
 }
 
-.cross {}
+button {   
+    background-color: transparent;   
+}

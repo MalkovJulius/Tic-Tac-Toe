@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -15,23 +11,35 @@ namespace Web_Tic_Tac_Toe
         protected void Application_Start()
         {
             //я не уверен в данном решении
-            Database.SetInitializer(new GameDbInitializer());
-
-            using (GameContext db = new GameContext())
-            {
-                Game game = new Game()
-                {                    
-                    YouWin = true,
-                    MoveGame = "some else step"
-                };
-                db.Games.Add(game);
-                db.SaveChanges();
-            }
+            //Database.SetInitializer(new GameDbInitializer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+            using (GameContext db = new GameContext())
+            {            
+                db.Games.Add(new Game { YouWin = true, MoveGame = "Some else steps" });
+                db.SaveChanges();
+            }
+        }
+    }
+
+    //public static void Application_Button_Click()
+    //{
+
+    //}
+
+    //в данном классе я не уверен
+    public class GameDbInitializer : DropCreateDatabaseAlways<GameContext>
+    {
+        protected override void Seed(GameContext context)
+        {
+            context.Games.Add(new Game { YouWin = true, MoveGame = "some step of player" });
+            base.Seed(context);
+            context.SaveChanges();
         }
     }
 }

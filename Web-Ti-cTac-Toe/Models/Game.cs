@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Web_Tic_Tac_Toe.Models
 {
     public class Game
     {
         [Key]
-        public uint GameId { get; set; }
+        public int GameId { get; set; }
         public bool YouWin { get; set; }
         [MaxLength(1000)]
         [Required]
