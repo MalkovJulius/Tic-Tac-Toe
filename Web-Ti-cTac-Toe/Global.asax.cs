@@ -26,12 +26,6 @@ namespace Web_Tic_Tac_Toe
             }
         }
     }
-
-    //public static void Application_Button_Click()
-    //{
-
-    //}
-
     //в данном классе я не уверен
     public class GameDbInitializer : DropCreateDatabaseAlways<GameContext>
     {

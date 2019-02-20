@@ -1,20 +1,21 @@
 ﻿@model IEnumerable<Web_Tic_Tac_Toe.Models.Game>
-@using Web_Tic_Tac_Toe.Controllers;
 
 @{
     ViewBag.Title = "Крестики Нолики";
 }
 
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>Крестики нолики</title>
-    <link rel="stylesheet" href="~/Content/site/Style.css" />
+    <link rel="stylesheet" href="~/Content/site/Style.css" />    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MyJSSupport.js")"> </script>  
 </head>
 
-<body style="color: #000080">
-    <h3>Сыграем!</h3>
+<body style="color: #000080" onload="alert('TO DO ask you Name')">
+    <h3>Сыграем!</h3>    
     <div class="row">
         <div class="col-md-3">
             <table class="game">
@@ -24,16 +25,16 @@
                         @for (int j = 0; j < 3; j++)
                         {
                             <td>
-                                <div>                                   
-                                    <button type="button" name="@i@j" onclick="ButtonClick">                                       
-                                        @Web_Tic_Tac_Toe.Controllers.HomeController.Image(i,j)                                         
+                                <div onclick="Temp(this)">
+                                    <button type="button" id="@i@j" >
+                                        <img src="~/Content/site/emptyPic.png" style="width:30px; height:30px"/> 
                                     </button>
                                 </div>
                             </td>
                         }
                     </tr>
-                }             
-            </table>            
+                }
+            </table>
             <h3>Счёт: </h3>
             <table class="table  table-border">
                 <tr>
@@ -45,7 +46,9 @@
                     <td>0</td>
                 </tr>
             </table>
+            <button id="ClearScore" class="btn btn-warning">Очистить Счёт</button>
         </div>
+
         <div class="col-md-5 col-md-offset-3">
             <h3>Журнал игр</h3>
             <table class="table table-hover">
@@ -59,10 +62,11 @@
                     <tr>
                         <td>@g.GameId</td>
                         <td>@g.YouWin</td>
-                        <td>@g.MoveGame</td>
+                        <td>@g.MoveGame</td>                        
                     </tr>
                 }
             </table>
+            <button id = "ClearLog" class="btn btn-warning">Очистить Таблицу</button>
         </div>
     </div>
 </body>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Web_Tic_Tac_Toe.Models;
@@ -10,15 +11,19 @@ namespace Web_Tic_Tac_Toe.Controllers
         GameContext db = new GameContext();
               
         public ActionResult Index()
-        {
+        {            
             return View(db.Games);
         }
 
-
-        public static MvcHtmlString BtnAddClick(int i, int j)
+        public ActionResult ButtonClick()
         {
-            string cross = "Content/site/cross.png";            
-            string circle = "Content/site/circle.png";            
+            return View();
+        }        
+               
+        public static MvcHtmlString BtnAddClick()
+        {
+            string cross = "~/Content/site/cross.png";            
+            string circle = "~/Content/site/circle.png";            
             TagBuilder img = new TagBuilder("img");            
             img.MergeAttribute("src", cross);
             img.MergeAttribute("height", "30");
@@ -28,7 +33,7 @@ namespace Web_Tic_Tac_Toe.Controllers
 
         public static MvcHtmlString Image(int i, int j)             
         {
-            string str = "Content/site/null.png";
+            string str = "~/Content/site/null.png";
             TagBuilder img = new TagBuilder("img");
             string tempName = i.ToString()+j.ToString();
             img.MergeAttribute("name", tempName);
@@ -38,11 +43,25 @@ namespace Web_Tic_Tac_Toe.Controllers
             return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
         }
 
-        protected void ButtonClick(object sender, EventArgs e)
+        protected class EditDb : DbContext
         {
-            Button btn = (Button)sender;
-            btn.Enabled = false;
+            public static void RemoveTable(GameContext context)
+            {
+                using (GameContext db = new GameContext())
+                {
+                    context.Games.RemoveRange(context.Games);
+                    db.SaveChanges();
+                }
+            }
         }
+
+        /*public void ButtonClick(ref Button btn)
+        {
+            //Button btn = (Button)sender;
+            btn.Enabled = false;
+            btn.Text = "BOOM";
+        }*/
+
         /*public void AddCharacter()
         {
             int i = 1;
