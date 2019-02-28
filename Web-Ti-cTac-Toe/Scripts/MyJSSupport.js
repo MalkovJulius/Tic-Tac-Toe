@@ -7,24 +7,20 @@ function Cross(arg) {
     $(arg).attr("disabled", "disabled");
     $(arg).children(0).attr("src", "../Content/site/cross.png");
     //CheckWin();
-    Zero();
+    setTimeout(Zero(),500);   
 }
 
-function Zero() {  
-    //for (var i = 0; i < 9; i++) {
-    var tempVar = $("button.button[disabled='false']").get(0);
-    var temp2 = $(tempVar).children(0);
-    alert($(temp2));
-            if ($(tempVar).html() == "<img src='~/Content/site/emptyPic.png' style='width:30px; height:30px' />")
-            {               
-                alert("WiN");                   
-                $(tempVar).children(0).attr("src", "../Content/site/circle.png");
-                $(tempVar).attr("disabled", "disabled");
-                //CheckWin();
-                return;
-            }
-            else alert("Something wrong");
-       //}
+function Zero() {      
+    for (var i = 0; i < 9; i++)
+    {
+        var tempVar = $(".button").get(i); 
+        if (!($(tempVar).prop("disabled"))) {  
+            $(tempVar).children(0).attr("src", "../Content/site/circle.png");
+            $(tempVar).attr("disabled", "disabled");
+            //CheckWin();
+            return;
+        }      
+    }    
 }
 
 function CheckWin() {
