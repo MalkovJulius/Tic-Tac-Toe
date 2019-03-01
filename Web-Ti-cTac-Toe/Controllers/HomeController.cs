@@ -5,7 +5,7 @@ using System.Web.UI.WebControls;
 using Web_Tic_Tac_Toe.Models;
 
 namespace Web_Tic_Tac_Toe.Controllers
-{
+{   
     public class HomeController : Controller
     {
         GameContext db = new GameContext();
