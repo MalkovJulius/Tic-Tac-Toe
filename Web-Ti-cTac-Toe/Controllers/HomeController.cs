@@ -52,7 +52,7 @@ namespace Web_Tic_Tac_Toe.Controllers
                     context.Games.RemoveRange(context.Games);
                     db.SaveChanges();
                 }
-            }
+            }            
         }
 
         /*public void ButtonClick(ref Button btn)

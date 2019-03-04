@@ -11,7 +11,7 @@ namespace Web_Ti_cTac_Toe.Controllers
         // GET: ButtonClick
         public ActionResult Index()
         {
-            return View();
+            return View();            
         }
     }
 }
