@@ -30,17 +30,54 @@ function Zero() {
 }
 
 //Checks whether won
-function CheckWin(someArg) {
-    //TODO: code this block, checking conditions win    
-    var x = $(someArg).children(0).prop("alt");
-    alert(x);
-    var y = $(someArg).prop("id");
-    alert(y);
-    var z = 0;   
-    for (var i = 0; i < 3; i++) {
-        var temp = "#" + y[0] + i;
-        alert($("#" + y[0] + i).children(0).prop("alt"));
-        alert($("#" + i + y[1]).children(0).prop("alt"));
+function CheckWin(someArg) {    
+    var valueProp = $(someArg).children(0).prop("alt");   
+    var valueID = $(someArg).prop("id");    
+    var countEqualProp = 0;   
+    for (var i = 0; i < 3; i++) {        
+        if (valueProp == $("#" + valueID[0] + i).children(0).prop("alt")) {
+            countEqualProp++;
+            if (countEqualProp == 3) {
+                ShowWinMessage(valueProp)
+            }
+        }
+        else break;        
     }
-    //set data in BD    
+    countEqualProp = 0;
+    for (var i = 0; i < 3; i++) {        
+        if (valueProp == $("#" + i + valueID[1]).children(0).prop("alt")) {
+            countEqualProp++;
+            if (countEqualProp == 3) {
+                ShowWinMessage(valueProp)
+            }
+        }
+        else break;        
+    }
+
+    if ((valueProp == $("#00").children(0).prop("alt")) &&
+        (valueProp == $("#11").children(0).prop("alt")) &&
+        (valueProp == $("#22").children(0).prop("alt")))
+    {
+        ShowWinMessage(valueProp);        
+    }
+
+    if ((valueProp == $("#02").children(0).prop("alt")) &&
+        (valueProp == $("#11").children(0).prop("alt")) &&
+        (valueProp == $("#20").children(0).prop("alt")))
+    {
+        ShowWinMessage(valueProp);       
+    }       
+}
+
+//everything is obvious
+function ShowWinMessage(valueProp) {
+    alert("Победил " + valueProp);
+    SetDataInController(valueProp);
+    location.reload();
+    return;
+}
+
+//sends data to controller
+function SetDataInController(valueProp) {
+    //TODO: set data in BD 
 }

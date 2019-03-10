@@ -13,37 +13,32 @@ namespace Web_Tic_Tac_Toe.Controllers
         public ActionResult Index()
         {            
             return View(db.Games);
-        }
-
-        public ActionResult ButtonClick()
-        {
-            return View();
-        }        
+        }          
                
-        public static MvcHtmlString BtnAddClick()
-        {
-            string cross = "~/Content/site/cross.png";            
-            string circle = "~/Content/site/circle.png";            
-            TagBuilder img = new TagBuilder("img");            
-            img.MergeAttribute("src", cross);
-            img.MergeAttribute("height", "30");
-            img.MergeAttribute("width", "30");
-            return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
-        } 
+        //public static MvcHtmlString BtnAddClick()
+        //{
+        //    string cross = "~/Content/site/cross.png";            
+        //    string circle = "~/Content/site/circle.png";            
+        //    TagBuilder img = new TagBuilder("img");            
+        //    img.MergeAttribute("src", cross);
+        //    img.MergeAttribute("height", "30");
+        //    img.MergeAttribute("width", "30");
+        //    return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
+        //} 
 
-        public static MvcHtmlString Image(int i, int j)             
-        {
-            string str = "~/Content/site/null.png";
-            TagBuilder img = new TagBuilder("img");
-            string tempName = i.ToString()+j.ToString();
-            img.MergeAttribute("name", tempName);
-            img.MergeAttribute("src", str);
-            img.MergeAttribute("height", "30");
-            img.MergeAttribute("width","30");            
-            return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
-        }
+        //public static MvcHtmlString Image(int i, int j)             
+        //{
+        //    string str = "~/Content/site/null.png";
+        //    TagBuilder img = new TagBuilder("img");
+        //    string tempName = i.ToString()+j.ToString();
+        //    img.MergeAttribute("name", tempName);
+        //    img.MergeAttribute("src", str);
+        //    img.MergeAttribute("height", "30");
+        //    img.MergeAttribute("width","30");            
+        //    return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
+        //}
 
-        protected class EditDb : DbContext
+        public class EditDb : DbContext
         {
             public static void RemoveTable(GameContext context)
             {
