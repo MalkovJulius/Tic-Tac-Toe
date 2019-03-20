@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <title>Крестики нолики</title>
-    <link rel="stylesheet" href="~/Content/site/Style.css" />    
+    <link rel="stylesheet" href="~/Content/site/Style.css" />       
     <script type="text/javascript" src="@Url.Content("~/Scripts/MyJSSupport.js")"> </script>  
 </head>
 
@@ -36,7 +36,7 @@
                 }
             </table>
             <h3>Счёт: </h3>
-            <table class="table  table-border">
+            <table class="table  table-border" id="tableOfScore">
                 <tr>
                     <th>Human</th>
                     <th>PC</th>
@@ -46,27 +46,33 @@
                     <td>0</td>
                 </tr>
             </table>
-            <button id="ClearScore" class="btn btn-warning">Очистить Счёт</button>
+            <button id="ClearScore" class="btn btn-warning">Очистить Счёт</button>          
         </div>
 
-        <div class="col-md-5 col-md-offset-3">
+        <div class="col-md-5 col-md-offset-3" >
             <h3>Журнал игр</h3>
-            <table class="table table-hover">
+            <table class="table table-hover" id="tableOfGame">
                 <tr class="header">
                     <th>№</th>
                     <th>Твоя победа</th>
                     <th>Запись ходов игры</th>
                 </tr>
-                @foreach (Web_Tic_Tac_Toe.Models.Game g in Model)
+                @if (Model != null)
                 {
-                    <tr>
-                        <td>@g.GameId</td>
-                        <td>@g.YouWin</td>
-                        <td>@g.MoveGame</td>                        
-                    </tr>
+                    foreach (Web_Tic_Tac_Toe.Models.Game g in Model)
+                    {
+                        <tr>
+                            <td>@g.GameId</td>
+                            <td>@g.YouWin</td>
+                            <td>@g.MoveGame</td>
+                        </tr>
+                    }
                 }
+
             </table>
-            <button id = "ClearLog" class="btn btn-warning">Очистить Таблицу</button>
+            <button id = "ClearLog" class="btn btn-warning" onclick="SetDataInController()">Очистить Таблицу</button>
+            @*<p>@ViewBag.Winner</p>*@            
+            <a href="/Home/RemoveTable" style="font-weight:900">Clear</a>
         </div>
     </div>
 </body>

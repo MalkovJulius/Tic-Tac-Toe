@@ -26,3 +26,7 @@ img {
 buttonGame {   
     background-color: transparent;   
 }
+
+a:hover {
+    color: red;    
+}
