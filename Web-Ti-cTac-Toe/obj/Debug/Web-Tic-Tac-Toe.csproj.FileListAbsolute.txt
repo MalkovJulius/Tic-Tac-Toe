@@ -100,4 +100,8 @@ C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\W
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csproj.CopyComplete
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Ti-cTac-Toe.dll
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Ti-cTac-Toe.pdb
+C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web_Ti_cTac_Toe.Migrations.InitialCreate.resources
+C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csproj.GenerateResource.cache
+C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web_Ti_cTac_Toe.Migrations.AddCompanyMigration.resources
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csprojAssemblyReference.cache
+C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web_Ti_cTac_Toe.Migrations.AddCompanyMigration1.resources

@@ -41,38 +41,41 @@
                     <th>Human</th>
                     <th>PC</th>
                 </tr>
-                <tr>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-            </table>
-            <button id="ClearScore" class="btn btn-warning">Очистить Счёт</button>          
+                @if (ViewBag.DBPlayers != null)
+                {
+                    foreach (Web_Tic_Tac_Toe.Models.Player p in ViewBag.DBPlayers)
+                    {
+                        <tr>
+                            <td>@p.SchoreWin</td>
+                            <td>@p.SchoreLose</td>
+                        </tr>
+                    }
+                }
+            </table>                     
         </div>
 
         <div class="col-md-5 col-md-offset-3" >
             <h3>Журнал игр</h3>
             <table class="table table-hover" id="tableOfGame">
                 <tr class="header">
-                    <th>№</th>
-                    <th>Твоя победа</th>
-                    <th>Запись ходов игры</th>
+                    <th>№ игры</th>
+                    <th>Имя победителя</th>
+                    <th>Описание игры игры</th>
                 </tr>
-                @if (Model != null)
+                @if (ViewBag.DBGames!= null )
                 {
-                    foreach (Web_Tic_Tac_Toe.Models.Game g in Model)
+                    foreach (Web_Tic_Tac_Toe.Models.Game g in ViewBag.DBGames)
                     {
                         <tr>
                             <td>@g.GameId</td>
-                            <td>@g.YouWin</td>
-                            <td>@g.MoveGame</td>
+                            <td>@g.NameOfWinner</td>
+                            <td>@g.DescriptionGame</td>
                         </tr>
                     }
                 }
 
             </table>
-            <button id = "ClearLog" class="btn btn-warning" onclick="SetDataInController()">Очистить Таблицу</button>
-            @*<p>@ViewBag.Winner</p>*@            
-            <a href="/Home/RemoveTable" style="font-weight:900">Clear</a>
+            <button id = "ClearLog" class="btn btn-warning" onclick="ClearTable()">Очистить Таблицу</button>                 
         </div>
     </div>
 </body>

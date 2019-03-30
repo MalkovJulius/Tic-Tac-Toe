@@ -159,16 +159,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903220711442_InitialCreate.cs" />
+    <Compile Include="Migrations\201903220711442_InitialCreate.Designer.cs">
+      <DependentUpon>201903220711442_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903241758065_AddCompanyMigration.cs" />
+    <Compile Include="Migrations\201903241758065_AddCompanyMigration.Designer.cs">
+      <DependentUpon>201903241758065_AddCompanyMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903271755214_AddCompanyMigration1.cs" />
+    <Compile Include="Migrations\201903271755214_AddCompanyMigration1.Designer.cs">
+      <DependentUpon>201903271755214_AddCompanyMigration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameContext.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DbGames.mdf" />
-    <Content Include="App_Data\DbGames_log.ldf">
-      <DependentUpon>DbGames.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -210,6 +219,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Support\" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +234,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903220711442_InitialCreate.resx">
+      <DependentUpon>201903220711442_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903241758065_AddCompanyMigration.resx">
+      <DependentUpon>201903241758065_AddCompanyMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271755214_AddCompanyMigration1.resx">
+      <DependentUpon>201903271755214_AddCompanyMigration1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,9 +6,12 @@ namespace Web_Tic_Tac_Toe.Models
     {
         [Key]
         public int GameId { get; set; }
-        public bool YouWin { get; set; }
-        [MaxLength(1000)]
+        [MaxLength(50)]
         [Required]
-        public string MoveGame { get; set; }       
+        public string NameOfWinner { get; set; }
+        [MaxLength(1000)]        
+        public string DescriptionGame { get; set; }       
+        public int? PlayerId { get; set; }
+        public virtual Player Player { get; set; }
     }
 }

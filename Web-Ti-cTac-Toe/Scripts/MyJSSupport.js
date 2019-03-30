@@ -70,20 +70,29 @@ function CheckWin(someArg) {
 function ShowWinMessage(valueProp) {
     alert("Победил " + valueProp);
     //ViewBag.Winner = valueProp;        
-    SetDataInController(valueProp);
+    SetDataInController();
     location.reload();
     return;
 }
 
 //sends data to controller
-function SetDataInController(/*valueProp*/) {
-    //$.ajax({
-    //    url:"SupportController.cs",
-    //    type: "POST",
-    //    data: ({ name: $("h3").val })        
-    //});
-
+function SetDataInController(valueProp) {
     var url = "/Home/AddData";
-    $.get(url);
+    $.get(url, valueProp, function () {
+        $("#tableOfGame").append("<tr><td>@g.GameId</td><td>@g.YouWin</td><td>@g.MoveGame</td></tr>");
+    })
+        .fail(function () {
+            alert("ERROR");
+        });
     //TODO: set data in BD js
+}
+
+function ClearTable() {
+    var url = "/Home/RemoveTable";
+    $.get(url, null, function () {
+        $("#tableOfGame").html("");
+    })
+        .fail(function () {
+            alert("ERROR");
+        });
 }

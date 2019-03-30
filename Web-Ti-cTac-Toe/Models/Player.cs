@@ -1,8 +1,17 @@
-﻿namespace Web_Tic_Tac_Toe.Models
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace Web_Tic_Tac_Toe.Models
 {
     public class Player
     {
-        public int[,] Field { get; set; } = new int[,] { { 0, 0, 0 }, { 0, 0, 0 } };
-        public byte[] Score { get; set; } = new byte[] { 0, 0 };
+        [Key]
+        public int PlayerId { get; set; }
+        [MaxLength(50)]
+        public string Name { get; set; }
+        public int SchoreWin { get; set; }
+        public int SchoreLose { get; set; }
+
+        public virtual ICollection<Game> Games { get; set; } //test this solution        
     }
 }
