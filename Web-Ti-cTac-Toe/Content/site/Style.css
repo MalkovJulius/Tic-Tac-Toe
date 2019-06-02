@@ -12,11 +12,13 @@ table.game {
 th {
   border: 2pt solid;
   border-color: #000080;  
+  color: darkblue;  
 }
 
 td {   
     border: 2pt solid;
     border-color: #000080; 
+    color: darkblue;    
 }
 
 img {    
@@ -28,5 +30,31 @@ buttonGame {
 }
 
 a:hover {
-    color: red;    
+    color: red;        
 }
+
+#gameResult {
+    overflow: auto;   
+}
+
+#greating {
+    text-align:center;
+    font-stretch:wider;
+    padding-bottom:20px;
+}
+
+#tableOfScore {
+    table-layout: fixed;
+}
+
+#person {
+    font-weight:800;
+    font-size:large;
+    text-align:right;
+}
+
+.btnMarg {
+    margin-top: 10px;
+}
+
+

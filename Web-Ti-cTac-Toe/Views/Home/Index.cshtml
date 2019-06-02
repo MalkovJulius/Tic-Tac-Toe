@@ -10,14 +10,27 @@
 <head>
     <meta charset="utf-8">
     <title>Крестики нолики</title>
-    <link rel="stylesheet" href="~/Content/site/Style.css" />       
-    <script type="text/javascript" src="@Url.Content("~/Scripts/MyJSSupport.js")"> </script>  
+    <link rel="stylesheet" href="~/Content/site/Style.css" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MyJSSupport.js")"></script>
+    <script type="text/javascript" src="~/Scripts/sha512-min.js"></script>
 </head>
 
-<body style="color: #000080" onload="AskName()">
-    <h3>Сыграем!</h3>    
-    <div class="row">
-        <div class="col-md-3">
+<body style="color: #000080" onload="Main()">   
+    <script async src="~/Scripts/MyJSSupport.js" ></script>
+    
+    <header>
+        <h3 id="greating">Сыграем!</h3>
+        <div id="person">
+            <a href="#" id="signIn" data-toggle="modal" data-target="#modalSignIn">Sign In</a>
+            <a href="#" id="signUp" data-toggle="modal" data-target="#modalSignUp">Sign Up</a>
+            <a href="#" id="signOut" style="display:none">Sign Out</a>
+            <p id="playersName"> </p>
+        </div>
+        <p id="counter" style="display:none">0</p>
+    </header>
+    <div class="row" id="allBlock">
+        <div class="col-md-4" id="gameScore">
+            <h3 style="visibility:hidden">Игра</h3>
             <table class="game" id="game">
                 @for (int i = 0; i < 3; i++)
                 {
@@ -26,8 +39,8 @@
                         {
                             <td>
                                 <div>
-                                    <button class ="buttonGame" id="@i@j" onclick="Cross(this)" style="background-color:transparent" >
-                                        <img src="~/Content/site/emptyPic.png" style="width:30px; height:30px" /> 
+                                    <button class="buttonGame" id="@i@j" onclick="Cross(this)" style="background-color:transparent">
+                                        <img src="~/Content/site/emptyPic.png" style="width:30px; height:30px" />
                                     </button>
                                 </div>
                             </td>
@@ -41,20 +54,10 @@
                     <th>Human</th>
                     <th>PC</th>
                 </tr>
-                @if (ViewBag.DBPlayers != null)
-                {
-                    foreach (Web_Tic_Tac_Toe.Models.Player p in ViewBag.DBPlayers)
-                    {
-                        <tr>
-                            <td>@p.SchoreWin</td>
-                            <td>@p.SchoreLose</td>
-                        </tr>
-                    }
-                }
-            </table>                     
+            </table>
         </div>
 
-        <div class="col-md-5 col-md-offset-3" >
+        <div id="gameResult" class="col-md-8">
             <h3>Журнал игр</h3>
             <table class="table table-hover" id="tableOfGame">
                 <tr class="header">
@@ -62,12 +65,13 @@
                     <th>Имя победителя</th>
                     <th>Описание игры игры</th>
                 </tr>
-                @if (ViewBag.DBGames!= null )
+                @if (ViewBag.DBGames != null)
                 {
+                    int i = 0;
                     foreach (Web_Tic_Tac_Toe.Models.Game g in ViewBag.DBGames)
                     {
                         <tr>
-                            <td>@g.GameId</td>
+                            <td>@(++i)</td>
                             <td>@g.NameOfWinner</td>
                             <td>@g.DescriptionGame</td>
                         </tr>
@@ -75,7 +79,84 @@
                 }
 
             </table>
-            <button id = "ClearLog" class="btn btn-warning" onclick="ClearTable()">Очистить Таблицу</button>                 
+            <button id="ClearLog" class="btn btn-warning" onclick="ClearTable()">Очистить Таблицу</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-labelledby="modalSignIn" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign In</h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="close">x</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="formSignIn" class="was-validated" onsubmit="SignInFormProcessing()">
+                            <div class="form-group">
+                                <div>
+                                    <label for="inputName">Name</label>
+                                    <input name="Name" type="text" class="form-control" id="inputName" placeholder="Enter your name" required />
+                                    <div class="valid-feedback">good</div>
+                                    <div class="invalid-feedback">fill in the field</div>
+                                </div>
+                                <div>
+                                    <label for="inputPasswaord">Password</label>
+                                    <input name="Password" type="password" class="form-control" id="inputPassword" placeholder="Password" required />
+                                    <div class="valid-feedback">good</div>
+                                    <div class="invalid-feedback">fill in the field</div>
+                                </div>
+                                <button class="btn btn-primary btnMarg" id="submitSignIn" type="submit">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalSignUp" tabindex="-1" role="dialog" aria-labelledby="modalSignUp" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign Up</h4>
+                    <button class="close" data-dismiss="modal">x</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="" id="formSignUp" class="was-validated" onsubmit="SignUpFormProcessing()"
+                              oninput="pas2.setCustomValidity(pas2.value != pas1.value ? 'Passwords do not match.' : '')">
+                            <div class="form-group">
+                                <div>
+                                    <label for="inputName">Name</label>
+                                    <input type="text" class="form-control va" id="inputName" placeholder="Enter your name" required />
+                                    <div class="valid-feedback">good</div>
+                                    <div class="invalid-feedback">fill in the field</div>
+                                </div>
+                                <div>
+                                    <label for="inputPasswaord">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="pas1" required />
+                                    <div class="valid-feedback">good</div>
+                                    <div class="invalid-feedback">fill in the field</div>
+                                </div>
+                                <div>
+                                    <label for="inputPasswaordRepeat">Password Repeat</label>
+                                    <input type="password" class="form-control" id="inputPasswordRepeat" placeholder="Password Repeat" name="pas2" required />
+                                    <div class="valid-feedback">good</div>
+                                    <div class="invalid-feedback">fill in the field</div>
+                                </div>
+                                <div>
+                                    <label for="inputEmail">Email Address</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required />
+                                    <div class="valid-feedback">good</div>
+                                    <div class="invalid-feedback">fill in the Email correct</div>
+                                </div>
+                                <button class="btn btn-primary btnMarg" id="submitSignUp" type="submit">Sign Up</button>                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

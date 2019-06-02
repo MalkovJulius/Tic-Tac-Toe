@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Web_Ti_cTac_Toe.Controllers
+{
+    public class AuthorizationAuthenticationController : Controller
+    {
+        // GET: AuthorizationAuthentication
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public void PrimaryProcessing()
+        {
+
+        }
+    }
+}
