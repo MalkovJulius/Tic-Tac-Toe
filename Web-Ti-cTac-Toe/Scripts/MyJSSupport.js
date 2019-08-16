@@ -120,31 +120,12 @@ function ClearTable() {
     },)
 }
 
-function InstallCookie(someDataName, someDataPassword) {
-    //TODO: set for check login and password to backend
-    var expire = new Date();
-    expire.setDate(expire.getDay() + 3);
-    document.cookie = "login=" + someDataName + ";expires=" + expire.toUTCString() + ";";
-    document.cookie = "password=" + someDataPassword + ";expires" + expire.toUTCString() + ";";
-}
-
-//should authentication users
-function getCookiesValue() {
-    var cookies = document.cookie.split(";");
-    for (i = 0; i < cookies.length; i++){
-        var parts = cookies[i].split("=");
-        var name = parts[0];
-        var val = parts[1];
-        alert("name of cookie = " + name);
-        alert("value of cookie = " + val);
-    }
-}
-
 function SignUpFormProcessing() {   
-    
+
 }
 
 function SignInFormProcessing() {
-  
+    
 }
+
 
