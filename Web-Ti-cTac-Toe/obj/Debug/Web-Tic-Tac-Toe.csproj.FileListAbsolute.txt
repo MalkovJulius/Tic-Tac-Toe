@@ -111,3 +111,4 @@ C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\Microso
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\Microsoft.ApplicationInsights.xml
 C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\юлиймар\source\repos\Web-Ti-cTac-Toe\Web-Ti-cTac-Toe\obj\Debug\Web-Tic-Tac-Toe.csprojAssemblyReference.cache

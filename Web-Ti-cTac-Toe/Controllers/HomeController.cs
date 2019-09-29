@@ -21,7 +21,7 @@ namespace Web_Tic_Tac_Toe.Controllers
         }    
 
         [WebMethod]
-        [Authorize(Roles ="Administrators")]
+        
         public void RemoveTable()
         {            
             using (GameContext db = new GameContext())
